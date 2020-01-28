@@ -1,0 +1,12 @@
+---
+slug: todo_items
+---
+{%- assign id = todo_item.params.slug2 -%}
+{%- graphql g = "get_todos", id: id -%}
+
+{%- if id == blank -%}
+  {% include_form 'todo_item' %}
+  {% include 'todo_item/list', contacts: g.models.results %}
+{%- else -%}
+  {% include 'todo_item/show', contact: g.models.results.first %}
+{%- endif -%}

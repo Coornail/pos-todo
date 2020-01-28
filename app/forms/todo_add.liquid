@@ -1,0 +1,40 @@
+---
+name: todo_item
+resource: todo
+resource_owner: anyone
+redirect_to: /todo_items
+fields:
+  properties:
+    name:
+      validation:
+        presence: true
+    description:
+      validation:
+        presence: true
+flash_notice: Todo item added
+---
+
+<h2>Create contact</h2>
+
+{% form %}
+  <div class="row">
+    <div class="form-group col-6">
+      <label for="name">Name:</label>
+      <input name="{{ form.fields.properties.name.name }}" value="{{ form.fields.properties.name.value }}" id="name" type="text" class="form-control">
+      {% if form.errors['properties.name'] %}
+        <p>{{ form.errors['properties.name'] }}</p>
+      {% endif %}
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-6">
+      <label for="description">Description:</label>
+      <textarea name="{{ form.fields.properties.description.name }}" id="description" class="form-control">{{ form.fields.properties.description.value }}</textarea>
+      {% if form.errors['properties.description'] %}
+        <p>{{ form.errors['properties.description'] }}</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <button class="btn btn-primary btn-lg">Add</button>
+{% endform %}

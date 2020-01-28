@@ -1,0 +1,10 @@
+name: todo
+properties:
+- name: name
+  type: string
+- name: is_done
+  type: boolean
+- name: priority
+  type: integer
+- name: description
+  type: string

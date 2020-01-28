@@ -1,0 +1,17 @@
+query get_todo_items($id: ID) {
+  models(
+    filter: {
+      model_schema_name: { value: "todo" },
+      id: { value: $id }
+    },
+    per_page: 100
+  ) {
+    results {
+      id
+      name: property(name: "name")
+      is_done: property(name: "is_done")
+      priority: property(name: "priority")
+      description: property(name: "description")
+    }
+  }
+}

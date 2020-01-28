@@ -1,0 +1,14 @@
+<h1>List View</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Details</th>
+    <th></th>
+  </tr>
+  {% for todo_item in todo_items %}
+  <tr>
+    <td>{{ todo_item.id }}</td>
+    <td><a href="/todo_item/{{ todo_item.id }}">Details</a></td>
+  </tr>
+  {% endfor %}
+</table>

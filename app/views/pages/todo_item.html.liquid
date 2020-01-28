@@ -6,7 +6,7 @@ slug: todo_items
 
 {%- if id == blank -%}
   {% include_form 'todo_item' %}
-  {% include 'todo_item/list', contacts: g.models.results %}
+  {% include 'todo_item/list', todos: g.models.results %}
 {%- else -%}
-  {% include 'todo_item/show', contact: g.models.results.first %}
+  {% include 'todo_item/show', todos: g.models.results.first %}
 {%- endif -%}

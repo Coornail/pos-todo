@@ -1,4 +1,4 @@
-query get_todo_items($id: ID) {
+query get_todos($id: ID) {
   models(
     filter: {
       model_schema_name: { value: "todo" },

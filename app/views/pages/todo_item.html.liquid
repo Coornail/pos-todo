@@ -4,8 +4,6 @@ slug: todo_items
 {%- assign id = context.params.slug2 -%}
 {%- graphql g = "get_todos", id: id -%}
 
-<script>console.log({{ context | json }});</script>
-
 {%- if id == blank -%}
   {% include_form 'todo_item' %}
   {% include 'todo_item/list', todos: g.models.results %}

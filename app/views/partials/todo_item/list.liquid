@@ -1,12 +1,18 @@
 <h1>List View</h1>
 <table>
   <tr>
+    <th></th>
     <th>Name</th>
     <th>Description</th>
     <th></th>
   </tr>
   {% for todo_item in todos %}
   <tr>
+    <td><input type="checkbox"
+    {% if todo_item.is_done == true %}
+      checked="checked"
+    {% endif %}
+    /></td>
     <td>{{ todo_item.name }}</td>
     <td>{{ todo_item.description }}</td>
     <td>

@@ -17,7 +17,7 @@
     <td>{{ todo_item.description }}</td>
     <td>
       <a href="/todo_items/{{ todo_item.id }}">Details</a>
-      <a href="/todo_items/{{ todo_item.id }}/delete">Delete</a>
+      {% include_form "delete_todo_item", id: todo_item.id %}
     </td>
   </tr>
   {% endfor %}

@@ -1,0 +1,11 @@
+---
+name: delete_todo_item
+resource: todo
+resource_owner: anyone
+redirect_to: /todo_items
+fields: {}
+---
+
+{% form method: "delete" %}
+  <button type="submit">Delete</button>
+{% endform %}

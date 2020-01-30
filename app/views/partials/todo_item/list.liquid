@@ -1,9 +1,10 @@
-<h1>List View</h1>
+<h2>Todos</h2>
 <table>
   <tr>
     <th></th>
     <th>Name</th>
     <th>Description</th>
+    <th></th>
     <th></th>
   </tr>
   {% for todo_item in todos %}
@@ -17,7 +18,9 @@
     <td>{{ todo_item.description }}</td>
     <td>
       <a href="/todo_items/{{ todo_item.id }}">Details</a>
-      <a href="/todo_items/{{ todo_item.id }}/delete">Delete</a>
+    </td>
+    <td>
+      {% include_form "todo_delete", id: todo_item:id %}
     </td>
   </tr>
   {% endfor %}

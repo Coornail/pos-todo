@@ -11,12 +11,27 @@ fields:
     description:
       validation:
         presence: true
+    is_done:
+      validation:
 flash_notice: Todo item added
 ---
 
 <h2>Add todo</h2>
 
 {% form %}
+  <div class="row">
+    <div class="form-group col-6">
+      <label for="is_done">Done:</label>
+      <input name="{{ form.fields.properties.is_done.name }}"
+      {% if form.fields.properties.is_done.value != null %}
+        checked="checked"
+      {% endif %}
+      value=true id="is_done" type="checkbox" class="form-control">
+      {% if form.errors['properties.name'] %}
+        <p>{{ form.errors['properties.name'] }}</p>
+      {% endif %}
+    </div>
+  </div>
   <div class="row">
     <div class="form-group col-6">
       <label for="name">Name:</label>

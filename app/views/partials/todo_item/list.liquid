@@ -1,15 +1,16 @@
-<h1>List View</h1>
+<h2>Todos</h2>
 <table>
   <tr>
     <th></th>
     <th>Name</th>
     <th>Description</th>
     <th></th>
+    <th></th>
   </tr>
   {% for todo_item in todos %}
   <tr>
     <td><input type="checkbox"
-    {% if todo_item.is_done == true %}
+    {% if todo_item.is_done != null %}
       checked="checked"
     {% endif %}
     /></td>
@@ -17,7 +18,9 @@
     <td>{{ todo_item.description }}</td>
     <td>
       <a href="/todo_items/{{ todo_item.id }}">Details</a>
-      {% include_form "delete_todo_item", id: todo_item.id %}
+    </td>
+    <td>
+      {% include_form "todo_delete", id: todo_item:id %}
     </td>
   </tr>
   {% endfor %}

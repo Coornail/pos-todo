@@ -22,7 +22,11 @@ flash_notice: Todo item added
   <div class="row">
     <div class="form-group col-6">
       <label for="is_done">is_done:</label>
-      <input name="{{ form.fields.properties.is_done.name }}" value=true id="is_done" type="checkbox" class="form-control">
+      <input name="{{ form.fields.properties.is_done.name }}"
+      {% if form.fields.properties.is_done.value != null %}
+        checked="checked"
+      {% endif %}
+      value=true id="is_done" type="checkbox" class="form-control">
       {% if form.errors['properties.name'] %}
         <p>{{ form.errors['properties.name'] }}</p>
       {% endif %}

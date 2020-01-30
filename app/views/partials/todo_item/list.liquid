@@ -9,7 +9,7 @@
   {% for todo_item in todos %}
   <tr>
     <td><input type="checkbox"
-    {% if todo_item.is_done == true %}
+    {% if todo_item.is_done != null %}
       checked="checked"
     {% endif %}
     /></td>

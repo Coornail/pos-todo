@@ -1,17 +1,12 @@
 query get_todos($id: ID) {
-  models(
-    filter: {
-      model_schema_name: { value: "todo" },
-      id: { value: $id }
-    },
-    per_page: 100
-  ) {
+  models(per_page: 100, filter: {id: {value: $id}, deleted_at: {exists: false}}) {
     results {
       id
       name: property(name: "name")
       is_done: property(name: "is_done")
       priority: property(name: "priority")
       description: property(name: "description")
+      deleted_at: property(name: "deleted_at")
     }
   }
 }

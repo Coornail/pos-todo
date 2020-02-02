@@ -1,0 +1,6 @@
+name: list
+properties:
+- name: name
+  type: string
+- name: list_id
+  type: string

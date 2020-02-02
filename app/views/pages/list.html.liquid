@@ -1,0 +1,12 @@
+---
+slug: lists
+---
+{%- assign id = context.params.slug2 -%}
+{%- graphql g = "get_lists", id: id -%}
+
+{%- if id == blank -%}
+  {% include_form 'add_list' %}
+  {% include 'lists/list', lists: g.models.results %}
+{%- else -%}
+  {% include 'lists/show', list: g.models.results.first %}
+{%- endif -%}

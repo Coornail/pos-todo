@@ -1,0 +1,9 @@
+query get_lists($id: ID) {
+  models(per_page: 100, filter: {id: {value: $id}, deleted_at: {exists: false}, model_schema_name: {value: "list"}}) {
+    results {
+      id
+      name: property(name: "name")
+      deleted_at: property(name: "deleted_at")
+    }
+  }
+}

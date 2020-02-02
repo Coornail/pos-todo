@@ -1,0 +1,16 @@
+<h2>Lists</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+  {% for list in lists %}
+  <tr>
+    <td>{{ list.name }}</td>
+    <td>
+      <a href="/lists/{{ list.id }}">Details</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>

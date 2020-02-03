@@ -10,14 +10,15 @@ fields:
         presence: true
         length:
           minimum: 5
+    list_id:
+        presence: true
 flash_notice: Todo item added
 ---
 
 <h2>Add todo</h2>
 
 {% form %}
-  <!--<input type="hidden" id="list_id" name="list_id" value={{list_id}} /> -->
-  <input type="text" id="list_id" name="list_id" value={{list_id}} />
+  <input type="hidden" id="list_id" name="{{ form.fields.properties.list_id.name }}" value={{ list_id }} />
   <div class="row">
   </div>
   <div class="row">

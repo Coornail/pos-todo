@@ -1,24 +1,16 @@
 <h2>Todos</h2>
 <table>
   <tr>
-    <th></th>
     <th>Name</th>
-    <th>Description</th>
-    <th></th>
     <th></th>
   </tr>
   {% for todo_item in todos %}
+  {% if todo_item.list_id != list_id %}
+    {% continue %}
+  {% endif %}
+
   <tr>
-    <td><input type="checkbox"
-    {% if todo_item.is_done != null %}
-      checked="checked"
-    {% endif %}
-    /></td>
-    <td>{{ todo_item.name }}</td>
-    <td>{{ todo_item.description }}</td>
-    <td>
-      <a href="/todo_items/{{ todo_item.id }}">Details</a>
-    </td>
+    <td>{{ todo_item.content }}</td>
     <td>
       {% include_form "todo_delete", id: todo_item:id %}
     </td>

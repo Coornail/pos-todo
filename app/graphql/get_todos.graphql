@@ -1,12 +1,9 @@
 query get_todos {
-  models(per_page: 100, filter: {deleted_at: {exists: false}}) {
+  models(per_page: 100, filter: {deleted_at: {exists: false}, model_schema_name: {value: "todo"}}) {
     results {
       id
-      name: property(name: "name")
-      is_done: property(name: "is_done")
-      priority: property(name: "priority")
-      description: property(name: "description")
-      deleted_at: property(name: "deleted_at")
+      list_id: property(name: "list_id")
+      content: property(name: "content")
       list: related_model(join_on_property: "list_id", model_schema_name: "list") {
         name: property(name: "name")
         id

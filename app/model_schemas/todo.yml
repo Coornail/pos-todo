@@ -3,4 +3,5 @@ properties:
 - name: content
   type: string
 - name: list_id
-  type: string
+  type: integer
+  belongs_to: list

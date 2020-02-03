@@ -2,7 +2,8 @@
 name: todo_delete
 resource: todo
 resource_owner: anyone
-redirect_to: /todo_items
+redirect_to: >
+  /lists/{{ context.params.slug2 }}
 fields: {}
 ---
 

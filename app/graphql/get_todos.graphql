@@ -1,5 +1,5 @@
-query get_todos($id: ID) {
-  models(per_page: 100, filter: {id: {value: $id}, deleted_at: {exists: false}}) {
+query get_todos {
+  models(per_page: 100, filter: {deleted_at: {exists: false}}) {
     results {
       id
       name: property(name: "name")
@@ -7,6 +7,10 @@ query get_todos($id: ID) {
       priority: property(name: "priority")
       description: property(name: "description")
       deleted_at: property(name: "deleted_at")
+      list: related_model(join_on_property: "list_id", model_schema_name: "list") {
+        name: property(name: "name")
+        id
+      }
     }
   }
 }

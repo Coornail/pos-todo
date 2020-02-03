@@ -1,10 +1,6 @@
 name: todo
 properties:
-- name: name
+- name: content
   type: string
-- name: is_done
-  type: boolean
-- name: priority
-  type: integer
-- name: description
+- name: list_id
   type: string

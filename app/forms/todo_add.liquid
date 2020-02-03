@@ -5,51 +5,27 @@ resource_owner: anyone
 redirect_to: /todo_items
 fields:
   properties:
-    name:
+    content:
       validation:
         presence: true
-    description:
-      validation:
-        presence: true
-    is_done:
-      validation:
 flash_notice: Todo item added
 ---
 
 <h2>Add todo</h2>
 
 {% form %}
+  <!--<input type="hidden" id="list_id" name="list_id" value={{list_id}} /> -->
+  <input type="text" id="list_id" name="list_id" value={{list_id}} />
+  <div class="row">
+  </div>
   <div class="row">
     <div class="form-group col-6">
-      <label for="is_done">Done:</label>
-      <input name="{{ form.fields.properties.is_done.name }}"
-      {% if form.fields.properties.is_done.value != null %}
-        checked="checked"
-      {% endif %}
-      value=true id="is_done" type="checkbox" class="form-control">
+      <label for="name">Content:</label>
+      <input name="{{ form.fields.properties.content.name }}" value="{{ form.fields.properties.content.value }}" id="name" type="text" class="form-control">
       {% if form.errors['properties.name'] %}
         <p>{{ form.errors['properties.name'] }}</p>
       {% endif %}
     </div>
   </div>
-  <div class="row">
-    <div class="form-group col-6">
-      <label for="name">Name:</label>
-      <input name="{{ form.fields.properties.name.name }}" value="{{ form.fields.properties.name.value }}" id="name" type="text" class="form-control">
-      {% if form.errors['properties.name'] %}
-        <p>{{ form.errors['properties.name'] }}</p>
-      {% endif %}
-    </div>
-  </div>
-  <div class="row">
-    <div class="form-group col-6">
-      <label for="description">Description:</label>
-      <textarea name="{{ form.fields.properties.description.name }}" id="description" class="form-control">{{ form.fields.properties.description.value }}</textarea>
-      {% if form.errors['properties.description'] %}
-        <p>{{ form.errors['properties.description'] }}</p>
-      {% endif %}
-    </div>
-  </div>
-
   <button class="btn btn-primary btn-lg">Add</button>
 {% endform %}

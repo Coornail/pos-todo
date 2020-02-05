@@ -4,8 +4,6 @@
 {% include_form "list_edit_form", id: context.params.slug2 %}
 
 <hr>
-<h2>Todo items</h2>
-
 {%- graphql g = "get_todos", id: id -%}
 {% include 'todo_item/list', todos: g.models.results, list_id: context.params.slug2 %}
 

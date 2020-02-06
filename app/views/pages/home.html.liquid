@@ -1,5 +1,11 @@
 ---
-layout_name: 1col
 ---
+{%- assign id = context.params.slug2 -%}
+{%- graphql g = "get_lists", id: id -%}
 
-<h1>This is home page.</h1>
+{%- if id == blank -%}
+  {% include_form 'add_list' %}
+  {% include 'lists/list', lists: g.models.results %}
+{%- else -%}
+  {% include 'lists/show', list: g.models.results.first %}
+{%- endif -%}

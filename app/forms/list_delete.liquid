@@ -1,0 +1,11 @@
+---
+name: list_delete
+resource: list
+resource_owner: anyone
+redirect_to: /lists/
+fields: {}
+---
+
+{% form method: "delete" %}
+  <button type="submit">Delete</button>
+{% endform %}

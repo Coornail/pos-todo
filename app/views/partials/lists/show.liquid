@@ -1,10 +1,24 @@
 <h1>Detail view</h1>
 <p>{{ list.name }}</p>
 
+{%- graphql g = "get_todos", id: id -%}
+
 {% include_form "list_edit_form", id: context.params.slug2 %}
 
+{% assign empty_list = true %}
+{% for todo_item in g.models.results %}
+    {% if todo_item.list_id != context.params.slug2 %}
+      {% continue %}
+    {% endif %}
+
+    {% assign empty_list = false %}
+{% endfor %}
+
+{% if empty_list == true %}
+    {% include_form "list_delete", id: context.params.slug2 %}
+{% endif %}
+
 <hr>
-{%- graphql g = "get_todos", id: id -%}
 {% include 'todo_item/list', todos: g.models.results, list_id: context.params.slug2 %}
 
 <hr>

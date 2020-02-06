@@ -5,16 +5,7 @@
 
 {% include_form "list_edit_form", id: context.params.slug2 %}
 
-{% assign empty_list = true %}
-{% for todo_item in g.models.results %}
-    {% if todo_item.list_id != context.params.slug2 %}
-      {% continue %}
-    {% endif %}
-
-    {% assign empty_list = false %}
-{% endfor %}
-
-{% if empty_list == true %}
+{% if g.models.results.size == 0 %}
     {% include_form "list_delete", id: context.params.slug2 %}
 {% endif %}
 

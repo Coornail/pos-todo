@@ -26,8 +26,8 @@ flash_notice: Todo item added
     <div class="form-group col-6">
       <label for="name">Content:</label>
       <input name="{{ form.fields.properties.content.name }}" value="{{ form.fields.properties.content.value }}" id="name" type="text" class="form-control">
-      {% if form.errors['properties.name'] %}
-        <p>{{ form.errors['properties.name'] }}</p>
+      {% if form.errors['properties.content'] %}
+        <p>{{ form.errors['properties.content'] }}</p>
       {% endif %}
     </div>
   </div>

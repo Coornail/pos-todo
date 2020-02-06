@@ -4,15 +4,7 @@
     <th>Name</th>
     <th></th>
   </tr>
-  {% assign non_empty_list = false %}
-
   {% for todo_item in todos %}
-  {% if todo_item.list_id != list_id %}
-    {% continue %}
-  {% endif %}
-
-  {% assign non_empty_list = true %}
-
   <tr>
     <td>{{ todo_item.content }}</td>
     <td>
@@ -21,7 +13,7 @@
   </tr>
   {% endfor %}
 
-  {% if non_empty_list == false %}
-  No todo items yet
+  {% if todos.size == 0 %}
+    No todo items yet
   {% endif %}
 </table>

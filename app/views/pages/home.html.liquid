@@ -5,7 +5,7 @@
 
 {%- if id == blank -%}
   {% include_form 'add_list' %}
-  {% include 'lists/list', lists: g.models.results %}
+  {% include 'lists/list', lists: g.models.results, id: id %}
 {%- else -%}
   {% include 'lists/show', list: g.models.results.first %}
 {%- endif -%}

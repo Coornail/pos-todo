@@ -8,5 +8,5 @@ slug: todo_items
   {% include_form 'todo_item' %}
   {% include 'todo_item/list', todos: g.models.results %}
 {%- else -%}
-  {% include 'todo_item/show', todo: g.models.results.first %}
+  {% include 'todo_item/show', todo: g.models.results.first, id: id %}
 {%- endif -%}
